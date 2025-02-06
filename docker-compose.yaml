@@ -1,0 +1,12 @@
+version: "3"
+services:
+    oraclequery:
+        image: suzds01:5000/expenses_tracker
+        build: .
+        environment:
+            - NODE_ORACLEDB_USER=SUZWIP
+            - NODE_ORACLEDB_PASSWORD=V1ct0r#y
+            - NODE_ORACLEDB_CONNECTIONSTRING=floracman.copeland.com:27850/floraint
+            - ORA_SDTZ=-08:00
+        ports:
+            - 3333:3000

@@ -1,0 +1,28 @@
+### Get TEST
+GET http://localhost:3000/test
+
+###expensES
+GET http://localhost:3000/api/expenses
+
+###expensES get by id
+GET http://localhost:3000/api/expenses/ABC
+
+###expens create
+POST http://localhost:3000/api/expenses
+Content-Type: application/json
+
+{
+  "title": "纸巾",
+  "amount": 4560
+}
+
+
+###expensES delete by id
+DELETE  http://localhost:3000/api/expenses/ABC
+
+### Get Total
+GET http://localhost:3000/api/expenses/total-spent
+
+### auth me
+### Get Total
+GET http://localhost:3000/api/me
