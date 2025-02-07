@@ -23,13 +23,14 @@ function Expenses() {
 
   return (
     <div className="p-2 mx-auto max-w-3xl">
+      <h2 className="font-bold text-lg">Recent expenses</h2>
       <Table>
         <TableCaption>A list of your expenses.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead>Id</TableHead>
             <TableHead>Title</TableHead>
             <TableHead className="text-right">Amount</TableHead>
+            <TableHead className="w-28">Date</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -38,24 +39,24 @@ function Expenses() {
                 .fill(0)
                 .map((_, i) => (
                   <TableRow key={i}>
-                    <TableCell>
-                      <Skeleton className="h-4" />
-                    </TableCell>
                     <TableCell className="font-medium">
                       <Skeleton className="h-4" />
                     </TableCell>
                     <TableCell className="text-right">
                       <Skeleton className="h-4" />
                     </TableCell>
+                    <TableCell>
+                      <Skeleton className="h-4" />
+                    </TableCell>
                   </TableRow>
                 ))
             : data.expenses.map((expense) => (
                 <TableRow key={expense.id}>
-                  <TableCell>{expense.id}</TableCell>
                   <TableCell className="font-medium">{expense.title}</TableCell>
                   <TableCell className="text-right">
-                    $ {expense.amount}
+                    $ {expense.amount / 100}
                   </TableCell>
+                  <TableCell className="max-w-15">{expense.txnDate}</TableCell>
                 </TableRow>
               ))}
         </TableBody>

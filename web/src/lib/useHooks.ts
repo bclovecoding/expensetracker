@@ -27,6 +27,7 @@ const useExpenses = () => {
       const data = await res.json()
       return data
     },
+    staleTime: 1000 * 60 * 5,
   })
   return query
 }

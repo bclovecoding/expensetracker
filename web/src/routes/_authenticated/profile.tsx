@@ -9,9 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 
 import { useQuery } from '@tanstack/react-query'
 import { userQueryOptions } from '@/lib/api'
+
+export function AvatarDemo() {
+  return (
+    <Avatar>
+      <AvatarImage src="https://github.com/shadcn.png" alt="avatar" />
+      <AvatarFallback>PH</AvatarFallback>
+    </Avatar>
+  )
+}
 
 export const Route = createFileRoute('/_authenticated/profile')({
   component: Profile,
@@ -33,12 +43,16 @@ function Profile() {
       <CardContent className="flex flex-col gap-4">
         <div>Email: {user.email}</div>
         <div>User Id: {user.id}</div>
-        <div>
-          <a href="/api/logout">Logout</a>
-        </div>
+
+        <Avatar>
+          <AvatarImage src={user.picture || undefined} alt="avatar" />
+          <AvatarFallback>PH</AvatarFallback>
+        </Avatar>
       </CardContent>
       <CardFooter className="flex place-content-end">
-        <Button>OK</Button>
+        <Button variant="ghost" asChild>
+          <a href="/api/logout">Logout</a>
+        </Button>
       </CardFooter>
     </Card>
   )

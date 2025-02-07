@@ -19,17 +19,14 @@ function RouteComponent() {
   const { isPending, error, data } = useTotalSpent()
 
   if (error) return 'A error has occurred:' + error.message
-
-  console.log({ data })
-
   return (
     <>
-      <Card className="w-[400px] m-auto">
+      <Card className="w-[400px] m-auto mt-4">
         <CardHeader>
-          <CardTitle>Total Spent</CardTitle>
+          <CardTitle className="text-lg">Total Spent</CardTitle>
           <CardDescription>The total amount you've spent</CardDescription>
         </CardHeader>
-        <CardContent>{isPending ? '...' : data.total}</CardContent>
+        <CardContent>{isPending ? '...' : `$ ${data.total / 100}`}</CardContent>
         <CardFooter></CardFooter>
       </Card>
     </>

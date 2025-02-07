@@ -26,22 +26,24 @@ function Root() {
 
 function NavBar() {
   return (
-    <div className="p-2 flex gap-4">
-      <Link to="/" className="[&.active]:font-bold">
-        Home
+    <div className="p-2 flex justify-between  max-w-3xl m-auto">
+      <Link to="/">
+        <h1 className="text-2xl font-bold">Expense Tracker</h1>
       </Link>
-      <Link to="/expenses" className="[&.active]:font-bold">
-        Expenses
-      </Link>
-      <Link to="/create-expense" className="[&.active]:font-bold">
-        Create
-      </Link>
-      <Link to="/profile" className="[&.active]:font-bold">
-        Profile
-      </Link>
-      <Link to="/about" className="[&.active]:font-bold">
-        About
-      </Link>
+      <div className="flex gap-4">
+        <Link to="/expenses" className="[&.active]:font-bold">
+          Expenses
+        </Link>
+        <Link to="/create-expense" className="[&.active]:font-bold">
+          Create
+        </Link>
+        <Link to="/profile" className="[&.active]:font-bold">
+          Profile
+        </Link>
+        <Link to="/about" className="[&.active]:font-bold">
+          About
+        </Link>
+      </div>
     </div>
   )
 }
